@@ -5,3 +5,6 @@ SGTouch/Logs
 SGTouch/Assets/Plugins/Editor/JetBrains
 SGTouch/Assets/Plugins/Editor/JetBrains.meta
 SGTouch/Assets/Plugins/Editor.meta
+SGTouch/Assembly-CSharp.csproj
+SGTouch/SGTouch.sln
+SGTouch/Assets/Plugins.meta

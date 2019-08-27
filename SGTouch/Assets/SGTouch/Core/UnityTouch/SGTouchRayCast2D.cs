@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SGTouch.Unity
+namespace SGTouch.Core.UnityTouch
 {
     public class SGTouchRayCast2D
     {

@@ -1,10 +1,11 @@
-﻿using SGTouch.Unity;
+﻿using SGTouch.Core.Interface;
+using SGTouch.Core.UnityTouch;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace SGTouch.Test
 {
-    public class TestSGTouch : MonoBehaviour, ISGTouchable
+    public class TestSGTouch : MonoBehaviour, ISGTouchListener, ISGOnTouchBegan, ISGOnTouchStationary, ISGOnTouchEnd
     {
         private SGTouchController _sgTouchController;
 

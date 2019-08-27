@@ -2,7 +2,7 @@
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace SGTouch.Unity
+namespace SGTouch.Core.UnityTouch
 {
     public class SGTouchController
     {

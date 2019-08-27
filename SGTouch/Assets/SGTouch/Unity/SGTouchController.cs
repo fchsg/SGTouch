@@ -38,7 +38,7 @@ namespace SGTouch.Unity
             _chainClickName = chainClickName;
         }
 
-        public void SetMultiTouchEnabled(bool enabled)
+        public static void SetMultiTouchEnabled(bool enabled)
         {
             Input.multiTouchEnabled = enabled;
         }

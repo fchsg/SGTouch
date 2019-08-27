@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Test
+namespace SGTouch.Test
 {
-    public class Test : MonoBehaviour
+    public class TestSGTouch : MonoBehaviour, ISGTouchable
     {
         private SGTouchController _sgTouchController;
 
@@ -15,7 +15,7 @@ namespace Test
             const int colliderLayer = 1 << 9;
             var sortingTouchLayers = new LayerMask[] { colliderLayer};
             _sgTouchController = new SGTouchController(Camera.main, sortingTouchLayers);
-            _sgTouchController.SetMultiTouchEnabled(true);  //option
+            SGTouchController.SetMultiTouchEnabled(true);  //option
 
             AddTouchListener();
             
@@ -25,6 +25,8 @@ namespace Test
             openBtn.onClick.AddListener(OnOpenTouch);
             var closeBtn =canvas.Find("Closed").GetComponent<Button>();    
             closeBtn.onClick.AddListener(OnCloseTouch);
+            
+            Debug.Log("SGTouch Initial Success");
         }
 
         private void OnOpenTouch()
@@ -39,35 +41,35 @@ namespace Test
             Debug.Log($"Closed Touch");
         }
         
-        private void AddTouchListener()
+        public void AddTouchListener()
         {
             _sgTouchController.AddTouchListener(OnTouchBegan, SGTouchPhase.Began); 
             _sgTouchController.AddTouchListener(OnTouchStationary, SGTouchPhase.Stationary);
             _sgTouchController.AddTouchListener(OnTouchEnd, SGTouchPhase.End);
         }
 
-        private void RemoveTouchListener()
+        public void RemoveTouchListener()
         {
             _sgTouchController.RemoveTouchListener(OnTouchBegan, SGTouchPhase.Began); 
             _sgTouchController.RemoveTouchListener(OnTouchStationary, SGTouchPhase.Stationary);
             _sgTouchController.RemoveTouchListener(OnTouchEnd, SGTouchPhase.End);
         }
 
-        private static void OnTouchBegan(SGTouchCover touchCover)
+        public void OnTouchBegan(SGTouchCover sgTouchCover)
         {
-            Debug.Log($"_onTouchStart{touchCover.Position}");
+            Debug.Log($"OnTouchBegan{sgTouchCover.Position}");
         }
 
-        private static void OnTouchStationary(SGTouchCover touchCover)
+        public void OnTouchStationary(SGTouchCover sgTouchCover)
         {
-            Debug.Log($"OnTouchStationary{touchCover.Position}");
+            Debug.Log($"OnTouchStationary{sgTouchCover.Position}");
         }
 
-        private static void OnTouchEnd(SGTouchCover touchCover)
+        public void OnTouchEnd(SGTouchCover sgTouchCover)
         {
-            Debug.Log($"OnTouchEnd{touchCover.Position}");
+            Debug.Log($"OnTouchEnd{sgTouchCover.Position}");
         }
-
+        
         private void Update()
         {
             _sgTouchController?.Update();
@@ -76,8 +78,7 @@ namespace Test
         private void OnDestroy()
         {
             RemoveTouchListener();
-
-           _sgTouchController?.Destroy();
+            _sgTouchController?.Destroy();
         }
     }
 }

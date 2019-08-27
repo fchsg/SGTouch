@@ -4,7 +4,7 @@ namespace SGTouch.Unity
     {
         void AddTouchListener();
         void RemoveTouchListener();
-        void OnTouchStart(SGTouchCover touchCover);
+        void OnTouchBegan(SGTouchCover touchCover);
         void OnTouchStationary(SGTouchCover sgTouchCover);
         void OnTouchEnd(SGTouchCover touchCover);
 

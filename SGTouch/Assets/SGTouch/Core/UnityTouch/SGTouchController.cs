@@ -207,8 +207,8 @@ namespace SGTouch.Core.UnityTouch
                 touchCover.Reset();
                 return;    
             }
-
-            if(_touchRaycast2D.TryGetRaycast2DObject(touchCover, out var hit2dObj))
+            
+            if (_touchRaycast2D.TryGetRaycast2DObject(touchCover, out var hit2dObj))
             {
                 switch (touchCover.Phase)
                 {

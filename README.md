@@ -1,5 +1,7 @@
 # SGTouch
-## Awsome Unity Touch
+## Simple Unity Touch
+## For mobile optimization
+## Easy to use
 
 # Usage
 ## 1.open your projcet /Packages/manifest.json

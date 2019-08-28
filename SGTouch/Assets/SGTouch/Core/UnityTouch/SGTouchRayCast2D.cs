@@ -19,8 +19,9 @@ namespace SGTouch.Core.UnityTouch
             _raycastHit2Ds = new RaycastHit2D[1];
         }
 
-        public GameObject TryGetRaycastObject(SGTouchCover touchCover)
+        public bool TryGetRaycast2DObject(SGTouchCover touchCover, out GameObject  raycastHitObj)
         {
+            raycastHitObj = null;
             _screenPointToRay =  _camera.ScreenPointToRay(touchCover.Position);
             var n = _sortinglayerMasks.Length;
             for (var i = 0; i < n; ++i)
@@ -28,11 +29,12 @@ namespace SGTouch.Core.UnityTouch
                 if (Physics2D.GetRayIntersectionNonAlloc(_screenPointToRay, 
                         _raycastHit2Ds, raycastDistance, _sortinglayerMasks[i]) > 0)
                 {
-                    return _raycastHit2Ds[0].collider.gameObject;
+                    raycastHitObj = _raycastHit2Ds[0].collider.gameObject;
+                    return true;
                 }    
             }
 
-            return null;
+            return false;
         }
     }
 }

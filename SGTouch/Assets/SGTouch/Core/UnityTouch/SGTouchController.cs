@@ -208,21 +208,20 @@ namespace SGTouch.Core.UnityTouch
                 return;    
             }
 
-            var pickedObj = _touchRaycast2D.TryGetRaycastObject(touchCover);
-            if (pickedObj != null)
+            if(_touchRaycast2D.TryGetRaycast2DObject(touchCover, out var hit2dObj))
             {
                 switch (touchCover.Phase)
                 {
                     case SGTouchPhase.Began:
                     {
-                        touchCover.SetInstanceId(pickedObj.GetInstanceID());
+                        touchCover.SetInstanceId(hit2dObj.GetInstanceID());
                         _onTouchBegan?.Invoke(touchCover);
                     }
                         break;
                     case SGTouchPhase.Stationary:
                     {
-                        if (touchCover.IsTouched(pickedObj.GetInstanceID()) || 
-                            IsPolygonCollider(pickedObj,_chainClickName)) // 按住连续点击
+                        if (touchCover.IsTouched(hit2dObj.GetInstanceID()) || 
+                            IsPolygonCollider(hit2dObj,_chainClickName)) // 按住连续点击
                         {
                             _onTouchStationary?.Invoke(touchCover);
                         }

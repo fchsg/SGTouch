@@ -2,7 +2,7 @@
 ## Simple unity touch editor & mobile
 ## For mobile optimization
 ## Easy to use
-## Unity vesrion 2018.4
+## Unity version 2018.4
 
 # Usage
 ## 1.Open your projcet /Packages/manifest.json

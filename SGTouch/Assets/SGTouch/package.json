@@ -1,0 +1,8 @@
+{
+  "name": "com.sg.touch",
+  "version": "1.0.0",
+  "displayName": "SG Touch",
+  "description": "unity touch",
+  "type": "touch",
+  "unity": "2017.4"
+}

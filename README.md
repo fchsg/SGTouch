@@ -6,7 +6,7 @@
 
 # Usage
 ## 1.Open your projcet /Packages/manifest.json
-## 2.Add "https://github.com/fchsg/SGTouch.git#upm" 
+## 2.Add one line "https://github.com/fchsg/SGTouch.git#upm" 
 
 # example code
 
